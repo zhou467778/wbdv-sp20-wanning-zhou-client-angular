@@ -1,1 +1,21 @@
-<p>course-table works!</p>
+<div class="wbdv-table-header">
+  <a type="button"><i class="fa fa-times wbdv-close-table"></i></a>
+  <h3 class="wbdv-course">Courses</h3>
+
+</div>
+
+<div class="wbdv-course-table">
+
+<ul class="list-group">
+<li class = "list-group-item">
+  <a>Course</a>
+</li>
+  <li class="list-group-item" *ngFor="let course of courses">
+
+    <a href="/course-viewer/{{course._id}}">
+      <i class="fa fa-file-text"></i> {{course.title}}
+    </a>
+  </li>
+</ul>
+</div>
+

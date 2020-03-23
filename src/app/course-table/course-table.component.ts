@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {CourseServiceClient} from '../services/CourseServiceClient';
 
 @Component({
   selector: 'app-course-table',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CourseTableComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private service: CourseServiceClient) { }
+  courses = [];
   ngOnInit(): void {
+    this.service.findAllCourses()
+      .then(courses => this.courses = courses);
   }
 
 }

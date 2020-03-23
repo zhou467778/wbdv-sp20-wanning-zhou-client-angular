@@ -1,0 +1,11 @@
+<div class="wbdv-module-list">
+<ul class="list-group">
+  <li class="list-group-item wbdv-module-title" *ngFor="let module of modules"
+      [class]="{'active': moduleId === module._id}"
+      >
+    <a routerLink="/course-viewer/{{courseId}}/modules/{{module._id}}">
+      {{module.title}}
+    </a>
+  </li>
+</ul>
+</div>
