@@ -1,0 +1,10 @@
+.quiz-title{
+  margin-top: 10px;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.quiz-close{
+  display: inline-block;
+  font-size: 30px;
+}

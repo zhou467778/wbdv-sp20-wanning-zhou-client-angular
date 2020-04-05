@@ -1,0 +1,30 @@
+<div class="multiple-box">
+  <div class="multiple-header">
+  <h5 class="multiple-title">{{question.question}}</h5>
+    <span class="fa answer-check"
+    [ngClass]="{'fa-check green':grading && answer === question.correct,
+'fa-close red':grading && answer !== question.correct}"></span>
+  </div>
+  <div class="list-group multiple-group">
+    <li class="list-group-item" *ngFor="let choice of question.choices"
+        [ngClass]="{'list-group-item-success': (grading && answer === choice && answer === question.correct) ||
+        (grading && answer !== question.correct && choice === question.correct),
+         'list-group-item-danger': (grading && answer !== question.correct && answer === choice)}">
+
+      <label>
+        <input type="radio" value="{{choice}}" [(ngModel)]="answer" name="{{question._id}}"/>  {{choice}}
+      </label>
+
+      <span class="fa question-check"
+            [ngClass]="{'fa-check':(grading && answer === choice && answer === question.correct) ||
+        (grading && answer !== question.correct && choice === question.correct),
+        'fa-close':(grading && answer !== question.correct && answer === choice)}"></span>
+    </li>
+
+  </div>
+  <br>
+  <a type="text" class="answer">Your answer: {{answer}}</a>
+  <br>
+  <button type="button" class="btn btn-success grade" (click)="grade()">Grade</button>
+</div>
+

@@ -1,0 +1,18 @@
+<div class="wbdv-quizzes-header">
+<a type="button" href="/table/courses"><i class="fa fa-times wbdv-close-quizzes"></i></a>
+<h2 class="wbdv-quizzes-text">Quizzes</h2>
+</div>
+<ul class="list-group">
+  <li *ngFor="let quiz of quizzes" class="list-group-item">
+    <a routerLink="/courses/{{courseId}}/quizzes/{{quiz._id}}">
+      {{quiz.title}}
+    </a>
+    <a class="btn btn-primary float-right"
+       routerLink="/courses/{{courseId}}/quizzes/{{quiz._id}}">
+      Start
+    </a>
+  </li>
+</ul>
+
+
+

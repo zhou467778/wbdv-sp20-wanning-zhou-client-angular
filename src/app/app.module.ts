@@ -11,6 +11,13 @@ import { LessonTabsComponent } from './lesson-tabs/lesson-tabs.component';
 import {ModuleServiceClient} from './services/ModuleServiceClient';
 import {LessonServiceClient} from './services/LessonServiceClient';
 import { HomePageComponent } from './home-page/home-page.component';
+import { QuizzesComponent } from './quizzes/quizzes.component';
+import {QuizServiceClient} from './services/QuizServiceClient';
+import { QuizComponent } from './quiz/quiz.component';
+import {QuestionServiceClient} from './services/QuestionServiceClient';
+import { TrueFalseQuestionComponent } from './true-false-question/true-false-question.component';
+import { MultipleChoiceQuestionComponent } from './multiple-choice-question/multiple-choice-question.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,15 +26,23 @@ import { HomePageComponent } from './home-page/home-page.component';
     CourseViewerComponent,
     ModuleListComponent,
     LessonTabsComponent,
-    HomePageComponent
+    HomePageComponent,
+    QuizzesComponent,
+    QuizComponent,
+    TrueFalseQuestionComponent,
+    MultipleChoiceQuestionComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [CourseServiceClient,
   ModuleServiceClient,
-  LessonServiceClient],
-  bootstrap: [AppComponent]
+  LessonServiceClient,
+  QuizServiceClient,
+  QuestionServiceClient],
+  bootstrap: [AppComponent],
+
 })
 export class AppModule { }

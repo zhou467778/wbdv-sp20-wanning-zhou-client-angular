@@ -1,0 +1,47 @@
+<div class="true-false-box">
+  <div class="true-false-title">
+  <h5 class="question-title"> {{question.question}}</h5>
+  <span><i class="fa answer-check"
+  [ngClass]="{'fa-check green': grading && answer === question.correct,
+  'fa-close red': grading && answer !== question.correct}"></i> </span>
+  </div>
+
+  <div class="list-group true-false-group">
+    <label>
+      <li class="list-group-item"
+          [ngClass]="{'list-group-item-success': (grading && answer === question.correct && answer === 'true')||
+          (grading && answer === 'false' && question.correct === 'true'),
+        'list-group-item-danger': (grading && answer !== question.correct && answer === 'true')}">
+
+        <input type="radio" name="{{question._id}}" [(ngModel)]="answer" value="true"/> TRUE
+
+        <span><i class="fa true-check"
+                 [ngClass]="{'fa-check':(grading && answer === question.correct && answer === 'true')||
+          (grading && answer === 'false' && question.correct === 'true'),
+           'fa-close':(grading && answer !== question.correct && answer === 'true') }"></i></span>
+
+      </li>
+    </label>
+    <label>
+      <li class="list-group-item"
+          [ngClass]="{'list-group-item-success': (grading && answer === question.correct && answer === 'false') ||
+        (grading && answer === 'true' && question.correct === 'false'),
+       'list-group-item-danger': (grading && answer !== question.correct && answer === 'false')}">
+
+        <input type="radio" name="{{question._id}}" [(ngModel)]="answer" value="false"/> FALSE
+
+        <span><i class="fa false-check"
+                 [ngClass]="{'fa-check': (grading && answer === question.correct && answer === 'false') ||
+        (grading && answer === 'true' && question.correct === 'false'),
+        'fa-close':(grading && answer !== question.correct && answer === 'false') }"></i></span>
+      </li>
+    </label>
+
+  </div>
+  <br>
+  <a type="text" class="answer">Your answer: {{answer}}</a>
+  <br>
+  <button type="button" class="btn btn-success grade" (click)="grade()">Grade</button>
+
+
+</div>
